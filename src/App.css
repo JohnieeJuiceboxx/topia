@@ -26,6 +26,10 @@
   justify-content: space-evenly;
 }
 
+.broadcast {
+  cursor: pointer;
+}
+
 .wobble-hor-bottom:hover {
 	-webkit-animation: wobble-hor-bottom 0.8s both;
 	        animation: wobble-hor-bottom 0.8s both;
@@ -96,6 +100,10 @@
 @media only screen and (max-width: 600px) {
   .input_container {
     flex-direction: column;
+  }
+ 
+  #modal > div.MuiBox-root.MuiBox-root-10{
+    width: 75dvw !important;
   }
 }
 

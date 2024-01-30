@@ -5,7 +5,8 @@ import listUsersInView from "../utils/listUsersInView";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import TvIcon from "@material-ui/icons/Tv";
+import TvOffIcon from "@material-ui/icons/TvOff";
 import Modal from "@material-ui/core/Modal";
 import Box from "@material-ui/core/Box";
 
@@ -161,7 +162,7 @@ export const UserList = ({ showModal, setShowModal }) => {
           </div>
         </Box>
       </Container>
-      <Modal open={showModal} onClose={() => setShowModal(false)}>
+      <Modal open={showModal} onClose={() => setShowModal(false)} id={"modal"}>
         <Box sx={style}>
           <Container maxWidth="md">
             <Box my={4}>
@@ -200,7 +201,11 @@ export const UserList = ({ showModal, setShowModal }) => {
                           </TableCell>
                           <TableCell align="right">{row.distance}</TableCell>
                           <TableCell align="right">
-                            {row.is_broadcaster ? "yes" : "no"}
+                            {row.is_broadcaster ? (
+                              <TvIcon className="broadcast" />
+                            ) : (
+                              <TvOffIcon className="broadcast" />
+                            )}
                           </TableCell>
                         </TableRow>
                       ))}
