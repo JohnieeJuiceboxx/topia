@@ -10,7 +10,6 @@ export default function CreateUserModal({
   xVal,
   yVal,
   setUserPos,
-  handleCreateUser,
 }) {
   // Modal style
   const style = {
@@ -18,7 +17,7 @@ export default function CreateUserModal({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 200,
+    width: 600,
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
@@ -35,40 +34,60 @@ export default function CreateUserModal({
           {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
     Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
   </Typography> */}
+
           <div>
             <TextField
-              label="x:"
-              id="outlined-size-small"
+              id="outlined-basic"
+              label="x"
               defaultValue={xVal}
-              size="small"
-              margin="normal"
+              variant="outlined"
               type="number"
+              margin="normal"
               onChange={(e) =>
                 setUserPos({ x: parseInt(e.target.value), y: yVal })
               }
             />
+            <TextField
+              id="outlined-basic"
+              label="y"
+              defaultValue={yVal}
+              variant="outlined"
+              type="number"
+              margin="normal"
+              onChange={(e) =>
+                setUserPos({ x: xVal, y: parseInt(e.target.value) })
+              }
+            />
           </div>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Screen Size
+          </Typography>
           <div>
             <TextField
-              label="y:"
-              id="outlined-size-small"
-              defaultValue={yVal}
-              size="small"
-              margin="normal"
+              id="outlined-basic"
+              label="width"
+              defaultValue={xVal}
+              variant="outlined"
               type="number"
+              margin="normal"
+              onChange={(e) =>
+                setUserPos({ x: parseInt(e.target.value), y: yVal })
+              }
+            />
+            <TextField
+              id="outlined-basic"
+              label="height"
+              defaultValue={yVal}
+              variant="outlined"
+              type="number"
+              margin="normal"
               onChange={(e) =>
                 setUserPos({ x: xVal, y: parseInt(e.target.value) })
               }
             />
           </div>
           <div>
-            <Button
-              variant="contained"
-              onClick={() => {
-                handleCreateUser();
-                handleModal(false);
-              }}
-            >
+            <Button variant="contained" onClick={() => handleModal(false)}>
               OK
             </Button>
           </div>
